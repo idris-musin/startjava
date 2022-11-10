@@ -1,15 +1,14 @@
 public class VariablesTheme {
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args) {    
         System.out.println("\n1. Вывод значений переменных на консоль");
 
-        byte numCores = 2; // кол-во ядер
-        short ram = 8; // RAM
-        int windowsVersion = 10; // версия windows
-        long driveSize = 1000; // размер диска
-        float frequency = 2.30f; // частота
-        double freeDriveSpace = 446.57d; // свободное место на диске
+        byte numCores = 2;
+        short ram = 8;
+        int windowsVersion = 10;
+        long driveSize = 1000;
+        float frequency = 2.30f;
+        double freeDriveSpace = 446.57d;
         char diskInstalledSystem = 'C';
         boolean availabilityUsb = true;
 
@@ -147,7 +146,7 @@ public class VariablesTheme {
 
         int hours = time / 3600;
         int minutes = (time % 3600) / 60;
-        int seconds = (time % 3600) % 60;
+        int seconds = minutes % 60;
 
         System.out.println(hours + ":" + minutes + ":" + seconds);
     }
