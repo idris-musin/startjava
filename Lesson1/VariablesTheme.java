@@ -64,15 +64,15 @@ public class VariablesTheme {
         System.out.println(digit1 + "; " + digit2);
         System.out.println("Перестановка с помощью арифметических операций:");
         System.out.println(digit2 + "; " + digit1);
-        digit2 = digit2 + digit1;
+        digit2 += digit1;
         digit1 = digit2 - digit1;
-        digit2 = digit2 - digit1;
+        digit2 -= digit1;
         System.out.println(digit2 + "; " + digit1);
         System.out.println("Перестановка с помощью побитовой операции:");
         System.out.println(digit1 + "; " + digit2);
-        digit1 = digit1 ^ digit2;
+        digit1 ^= digit2;
         digit2 = digit1 ^ digit2;
-        digit1 = digit1 ^ digit2;
+        digit1 ^= digit2;
         System.out.println(digit1 + "; " + digit2);
 
         System.out.println("\n6. Вывод символов и их кодов");
@@ -110,12 +110,12 @@ public class VariablesTheme {
         char parenthesisOpen = '(';
         char parenthesisClose = ')';
 
-        System.out.println("    " + slash + backslash + "     ");
-        System.out.println("   " + slash + "  " + backslash + "    ");
-        System.out.println("  " + slash + underscore + parenthesisOpen + " " + parenthesisClose + backslash + "   ");
-        System.out.println(" " + slash + "      " + backslash + "  ");
+        System.out.println("    " + slash + backslash);
+        System.out.println("   " + slash + "  " + backslash);
+        System.out.println("  " + slash + underscore + parenthesisOpen + " " + parenthesisClose + backslash);
+        System.out.println(" " + slash + "      " + backslash);
         System.out.println("" + slash + underscore + underscore + underscore + underscore + slash + backslash + 
-            underscore + underscore + backslash + " ");
+                underscore + underscore + backslash);
 
         System.out.println("\n9. Вывод произведения и суммы цифр числа");
 
