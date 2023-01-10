@@ -32,7 +32,7 @@ public class IfElseStatementTheme {
         } else if (firstLetterName == 'I') {
             System.out.println("Возможно имя Ivan");
         } else {
-            System.out.println("Имя начинаеся на какую-то другую букву");
+            System.out.println("Имя начинается на какую-то другую букву");
         }
 
         System.out.println("\n2. Поиск max и min числа");
@@ -180,38 +180,38 @@ public class IfElseStatementTheme {
         System.out.println("\n9. Подсчет количества банкнот");
 
         int moneySum = 567;
-        int denomination100 = 10;
-        int denomination10 = 5;
-        int denomination1 = 50;
+        int amountDenomination100 = 10;
+        int amountDenomination10 = 5;
+        int amountDenomination1 = 50;
 
-        int Amount100 = moneySum / 100;
-        int Amount10 = (moneySum % 100) / 10;
-        int Amount1 = moneySum % 10;
+        int amountBanknotes100 = moneySum / 100;
+        int amountBanknotes10 = (moneySum % 100) / 10;
+        int amountBanknotes1 = moneySum % 10;
 
-        if (Amount100 < denomination100) {
-            denomination100 = Amount100;
-            System.out.println("Количество банкнот номиналом 100: " + denomination100);
+        if (amountBanknotes100 < amountDenomination100) {
+            amountDenomination100 = amountBanknotes100;
+            System.out.println("Количество банкнот номиналом 100: " + amountDenomination100);
         } else {
-            Amount10 = Amount10 + (Amount100 - denomination100) * 10;
-            System.out.println("Количество банкнот номиналом 100: " + denomination100);
+            amountBanknotes10 += (amountBanknotes100 - amountDenomination100) * 10;
+            System.out.println("Количество банкнот номиналом 100: " + amountDenomination100);
         }
 
-        if (Amount10 < denomination10) {
-            denomination10 = Amount10;
-            System.out.println("Количество банкнот номиналом 10: " + denomination10);
+        if (amountBanknotes10 < amountDenomination10) {
+            amountDenomination10 = amountBanknotes10;
+            System.out.println("Количество банкнот номиналом 10: " + amountDenomination10);
         } else {
-            Amount1 = Amount1 + (Amount10 - denomination10) * 10;
-            System.out.println("Количество банкнот номиналом 10: " + denomination10);
+            amountBanknotes1 += (amountBanknotes10 - amountDenomination10) * 10;
+            System.out.println("Количество банкнот номиналом 10: " + amountDenomination10);
         }
 
-        if (Amount1 < denomination1) {
-            denomination1 = Amount1;
-            System.out.println("Количество банкнот номиналом 1: " + denomination1);
+        if (amountBanknotes1 < amountDenomination1) {
+            amountDenomination1 = amountBanknotes1;
+            System.out.println("Количество банкнот номиналом 1: " + amountDenomination1);
         } else {
-            System.out.println("Количество банкнот номиналом 1: " + denomination1);
+            System.out.println("Количество банкнот номиналом 1: " + amountDenomination1);
         }
 
-        int examination = denomination100 * 100 + denomination10 * 10 + denomination1;
+        int examination = amountDenomination100 * 100 + amountDenomination10 * 10 + amountDenomination1;
 
         System.out.println("Выданная сумма: " + examination);
     }
