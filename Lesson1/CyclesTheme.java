@@ -51,13 +51,13 @@ public class CyclesTheme {
 
         System.out.print("Исходное число в обратном порядке: ");
 
-        int numBack = 0;
-        while (num4 != 0) {
-            numBack = num4 % 10;
-            sum += numBack;
+        while (num4 > 0) {
+            int digit = 0;
+            digit = num4 % 10;
+            sum += digit;
             num4 /= 10;
 
-            System.out.print(numBack);
+            System.out.print(digit);
         }
 
         System.out.println("\nСумма цифр числа: " + sum);
@@ -186,11 +186,12 @@ public class CyclesTheme {
 
         int number = 159366;
 
-        int sumNumberFirst = 0;
-        int sumNumberLast = 0;
+        int sumLeftHalf = 0;
+        int sumRightHalf = 0;
 
         int numberCopy = number;
         int digitAmount = 0;
+        int digitNumber = 1;
 
         while (numberCopy != 0) {
             numberCopy /= 10;
@@ -198,31 +199,24 @@ public class CyclesTheme {
         }
 
         if (digitAmount == 6) {
-            int numberFirst = number / 1000;
+            int leftHalf = number / 1000;
+            int rightHalf = number % 1000;
+            int copyNum = number;
 
-            System.out.print("Сумма цифр " + numberFirst + " = ");
-
-            while (numberFirst != 0) {
-                int digitFirst = numberFirst % 10;
-                numberFirst /= 10;
-                sumNumberFirst += digitFirst;
+            while (copyNum != 0) {
+                if (digitNumber > 3) {
+                    sumLeftHalf += copyNum % 10;
+                } else {
+                    sumRightHalf += copyNum % 10;
+                }
+                copyNum /= 10;
+                digitNumber++;
             }
 
-            System.out.println(sumNumberFirst);
+            System.out.println("Сумма цифр " + leftHalf + " = " + sumLeftHalf);
+            System.out.println("Сумма цифр " + rightHalf + " = " + sumRightHalf);
 
-            int numberLast = number % 1000;
-
-            System.out.print("Сумма цифр " + numberLast + " = ");
-
-            while (numberLast != 0) {
-                int digitLast = numberLast % 10;
-                numberLast /= 10;
-                sumNumberLast += digitLast;
-            }
-
-            System.out.println(sumNumberLast);
-
-            if (sumNumberFirst == sumNumberLast) {
+            if (sumLeftHalf == sumRightHalf) {
                 System.out.println("Число " + number + " является счастливым");
             } else {
                 System.out.println("Число " + number + " не является счастливым");
