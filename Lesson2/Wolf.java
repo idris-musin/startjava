@@ -1,5 +1,5 @@
 public class Wolf {
-
+    
     String gender;
     String nickname;
     String color;
