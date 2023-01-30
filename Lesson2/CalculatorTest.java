@@ -9,7 +9,6 @@ public class CalculatorTest {
         String answer = "yes";
 
         while (answer.equals("yes")) {
-
             System.out.print("Введите первое число: ");
             calculator.setFirstNum(scanner.nextInt());
             scanner.nextLine();
@@ -23,7 +22,7 @@ public class CalculatorTest {
             System.out.println(calculator.getFirstNum() + " " +
                     calculator.getOperation() + " " +
                     calculator.getSecondNum() + " = " +
-                    calculator.result());
+                    calculator.calculation());
 
             do {
                 System.out.println("Хотите продолжить вычисления? [yes/no]");

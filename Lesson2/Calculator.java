@@ -3,7 +3,6 @@ public class Calculator {
     private int firstNum;
     private int secondNum;
     private char operation;
-    private int result;
 
     public int getFirstNum() {
         return firstNum;
@@ -29,45 +28,32 @@ public class Calculator {
         this.operation = operation;
     }
 
-    public int getResult() {
-        return result;
-    }
-
-    public void setResult(int result) {
-        this.result = result;
-    }
-
-    public int result() {
+    public int calculation() {
         switch (operation) {
             case '+':
-                result = firstNum + secondNum;
-                break;
+                return firstNum + secondNum;
             case '-':
-                result = firstNum - secondNum;
-                break;
+                return firstNum - secondNum;
             case '*':
-                result = firstNum * secondNum;
-                break;
+                return firstNum * secondNum;
             case '/':
                 if (secondNum != 0) {
-                    result = firstNum / secondNum;
+                    return firstNum / secondNum;
                 } else {
                     System.out.println("Делить на ноль нельзя!");
+                    return 0;
                 }
-                break;
             case '%':
-                result = firstNum % secondNum;
-                break;
+                return firstNum % secondNum;
             case '^':
-                result = 1;
+                int result = 1;
                 for (int i = 0; i < secondNum; i++) {
                     result *= firstNum;
                 }
-                break;
+                return result;
             default:
                 System.out.println("Вы ввели неверный математический знак!!!");
-                break;
         }
-        return result;
+        return 0;
     }
 }
