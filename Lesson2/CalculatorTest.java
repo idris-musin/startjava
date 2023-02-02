@@ -22,7 +22,7 @@ public class CalculatorTest {
             System.out.println(calculator.getFirstNum() + " " +
                     calculator.getOperation() + " " +
                     calculator.getSecondNum() + " = " +
-                    calculator.calculation());
+                    calculator.calculate());
 
             do {
                 System.out.println("Хотите продолжить вычисления? [yes/no]");

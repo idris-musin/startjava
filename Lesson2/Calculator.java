@@ -28,7 +28,7 @@ public class Calculator {
         this.operation = operation;
     }
 
-    public int calculation() {
+    public int calculate() {
         switch (operation) {
             case '+':
                 return firstNum + secondNum;
