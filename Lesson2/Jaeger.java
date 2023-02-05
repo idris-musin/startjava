@@ -8,11 +8,10 @@ public class Jaeger {
     private int strength;
     private int armor;
 
-    public Jaeger() {
+    public Jaeger() {}
 
-    }
-
-    public Jaeger(String modelName, String mark, String origin, float height, float weight, int speed, int strength, int armor) {
+    public Jaeger(String modelName, String mark, String origin, float height, 
+        float weight, int speed, int strength, int armor) {
         this.modelName = modelName;
         this.mark = mark;
         this.origin = origin;
@@ -91,7 +90,7 @@ public class Jaeger {
         return true;
     }
 
-    public void movie() {
+    public void move() {
         System.out.print("moving at a speed ");
     }
 

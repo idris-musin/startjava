@@ -17,13 +17,13 @@ public class JaegerTest {
         System.out.println(jaeger1.getModelName() + " entered the drift: " + jaeger1.drift());
         System.out.println(jaeger1.getModelName() + " " + jaeger1.scanKaiju());
         System.out.print(jaeger1.getModelName() + " ");
-        jaeger1.movie();
+        jaeger1.move();
         System.out.println(jaeger1.getSpeed() + " towards the Kaiju");
         System.out.println("His strength " + jaeger1.getStrength());
 
         System.out.println(jaeger2.getModelName() + " entered the drift: " + jaeger1.drift());
         System.out.print(jaeger2.getModelName() + " ");
-        jaeger2.movie();
+        jaeger2.move();
         jaeger2.setSpeed(3);
         System.out.println(jaeger2.getSpeed() + " towards the Kaiju");
         System.out.println("His strength " + jaeger2.getStrength());

@@ -10,18 +10,18 @@ public class CalculatorTest {
 
         while (answer.equals("yes")) {
             System.out.print("Введите первое число: ");
-            calculator.setFirstNum(scanner.nextInt());
+            calculator.setNum1(scanner.nextInt());
             scanner.nextLine();
             System.out.print("Введите знак математической операции: ");
             calculator.setOperation(scanner.next().charAt(0));
             scanner.nextLine();
             System.out.print("Введите второе число: ");
-            calculator.setSecondNum(scanner.nextInt());
+            calculator.setNum2(scanner.nextInt());
             scanner.nextLine();
 
-            System.out.println(calculator.getFirstNum() + " " +
+            System.out.println(calculator.getNum1() + " " +
                     calculator.getOperation() + " " +
-                    calculator.getSecondNum() + " = " +
+                    calculator.getNum2() + " = " +
                     calculator.calculate());
 
             do {

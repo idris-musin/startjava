@@ -1,23 +1,23 @@
 public class Calculator {
 
-    private int firstNum;
-    private int secondNum;
+    private int num1;
+    private int num2;
     private char operation;
 
-    public int getFirstNum() {
-        return firstNum;
+    public int getNum1() {
+        return num1;
     }
 
-    public void setFirstNum(int firstNum) {
-        this.firstNum = firstNum;
+    public void setNum1(int num1) {
+        this.num1 = num1;
     }
 
-    public int getSecondNum() {
-        return secondNum;
+    public int getNum2() {
+        return num2;
     }
 
-    public void setSecondNum(int secondNum) {
-        this.secondNum = secondNum;
+    public void setNum2(int num2) {
+        this.num2 = num2;
     }
 
     public char getOperation() {
@@ -31,24 +31,23 @@ public class Calculator {
     public int calculate() {
         switch (operation) {
             case '+':
-                return firstNum + secondNum;
+                return num1 + num2;
             case '-':
-                return firstNum - secondNum;
+                return num1 - num2;
             case '*':
-                return firstNum * secondNum;
+                return num1 * num2;
             case '/':
-                if (secondNum != 0) {
-                    return firstNum / secondNum;
-                } else {
-                    System.out.println("Делить на ноль нельзя!");
-                    return 0;
+                if (num2 != 0) {
+                    return num1 / num2;
                 }
+                System.out.println("Делить на ноль нельзя!");
+                return 0;
             case '%':
-                return firstNum % secondNum;
+                return num1 % num2;
             case '^':
                 int result = 1;
-                for (int i = 0; i < secondNum; i++) {
-                    result *= firstNum;
+                for (int i = 0; i < num2; i++) {
+                    result *= num1;
                 }
                 return result;
             default:
