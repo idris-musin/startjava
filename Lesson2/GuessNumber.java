@@ -38,7 +38,7 @@ public class GuessNumber {
 
     private boolean isGuisse(Player player) {
         if (player.getNumber() == compNum) {
-            System.out.println("Победил игрок " + player.getName() + ". Компьтер загадал число " + compNum);
+            System.out.println("Победил игрок " + player.getName() + ". Компьютер загадал число " + compNum);
             return true;
         }
         if (player.getNumber() > compNum) {
