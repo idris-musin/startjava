@@ -4,7 +4,7 @@ public class GuessNumber {
 
     private Player player1;
     private Player player2;
-    private int compNum;
+    private int hiddenNum;
 
     public GuessNumber(Player player1, Player player2) {
         this.player1 = player1;
@@ -15,18 +15,18 @@ public class GuessNumber {
         generateNumber();
         do {
             enterNumber(player1);
-            if (isGuisse(player1)) {
+            if (isGuessed(player1)) {
                 break;
             }
             enterNumber(player2);
-            if (isGuisse(player2)) {
+            if (isGuessed(player2)) {
                 break;
             }
         } while (true);
     }
 
     private void generateNumber() {
-        compNum = (int) ((Math.random() * 100) + 1);
+        hiddenNum = (int) ((Math.random() * 100) + 1);
     }
 
     private void enterNumber(Player player) {
@@ -36,12 +36,12 @@ public class GuessNumber {
         scanner.nextLine();
     }
 
-    private boolean isGuisse(Player player) {
-        if (player.getNumber() == compNum) {
-            System.out.println("Победил игрок " + player.getName() + ". Компьютер загадал число " + compNum);
+    private boolean isGuessed(Player player) {
+        if (player.getNumber() == hiddenNum) {
+            System.out.println("Победил игрок " + player.getName() + ". Компьютер загадал число " + hiddenNum);
             return true;
         }
-        if (player.getNumber() > compNum) {
+        if (player.getNumber() > hiddenNum) {
             System.out.println("Число, загаданное компьютером меньше " + player.getNumber());
         } else {
             System.out.println("Число, загаданное компьютером больше " + player.getNumber());
