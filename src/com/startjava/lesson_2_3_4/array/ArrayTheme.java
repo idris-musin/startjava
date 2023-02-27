@@ -9,71 +9,70 @@ public class ArrayTheme {
         int[] intArr = {3, 1, 6, 4, 7, 5, 2};
         int len = intArr.length;
 
-        for (int i : intArr) {
-            System.out.print(i + " ");
-        }
+        arrayExpression(intArr);
 
         System.out.println();
-        int[] intArrReverse = new int[len];
-        for (int i = 0; i < intArrReverse.length; i++) {
-            intArrReverse[i] = intArr[len - 1 - i];
-            System.out.print(intArrReverse[i] + " ");
+        for (int i = 0; i < len; i++, len--) {
+            int temp = intArr[i];
+            intArr[i] = intArr[len - 1];
+            intArr[len - 1] = temp;
         }
 
-        System.out.println("\n\n2. Вывод произведения элементов массива");
+        arrayExpression(intArr);
+
+        System.out.print("\n\n2. Вывод произведения элементов массива");
         intArr = new int[10];
         len = intArr.length;
 
         for (int i = 0; i < len; i++) {
             intArr[i] = i;
-            System.out.print(intArr[i] + " ");
         }
 
         System.out.println();
-        int mult = 1;
+        int multiplication = 1;
 
         for (int i = 1; i < len - 1; i++) {
-            System.out.print(i);
-            mult *= i;
-            String result = intArr[i] < intArr[len - 2] ? " * " : " = " + mult;
-            System.out.print(result);
+            multiplication *= i;
+            System.out.print(intArr[i] + (intArr[i] < intArr[len - 2] ? " * " : " = " + multiplication));
         }
 
         System.out.println("\n" + intArr[0] + " и " + intArr[9]);
 
         System.out.println("\n3. Удаление элементов массива");
-        float[] floatsArr = new float[15];
+        float[] floatArr = new float[15];
+        len = floatArr.length;
 
-        for (int i = 0; i < floatsArr.length; i++) {
-            floatsArr[i] = (float) Math.random();
+        for (int i = 0; i < len; i++) {
+            floatArr[i] = (float) Math.random();
         }
 
         System.out.println("Исходный массив:");
-        conclusionFloatsArr(floatsArr);
+        conclusionFloatsArr(floatArr);
 
-        float middleNum = floatsArr[floatsArr.length / 2];
+        float middleCellValue = floatArr[len / 2];
         int count = 0;
-        for (int i = 0; i < floatsArr.length; i++) {
-            if (floatsArr[i] > middleNum) {
-                floatsArr[i] = 0;
+        for (int i = 0; i < len; i++) {
+            if (floatArr[i] > middleCellValue) {
+                floatArr[i] = 0;
                 count++;
             }
         }
 
         System.out.println("\nНовый массив:");
-        conclusionFloatsArr(floatsArr);
+        conclusionFloatsArr(floatArr);
         System.out.println("\nКоличество обнуленных ячеек: " + count);
 
         System.out.print("\n4. Вывод элементов массива лесенкой в обратном порядке");
         char[] charArr = new char[26];
+        len = charArr.length;
         int i = 0;
 
         for (char ch = 'A'; ch <= 'Z'; ch++) {
             charArr[i++] = ch;
         }
 
-        for (i = charArr.length; i >= 0; i--) {
-            for (int j = charArr.length - 1; j >= i; j--) {
+        for (i = len; i >= 0; i--) {
+            for (int j = len - 1; j >= i; j--) {
                 System.out.print(charArr[j]);
             }
             System.out.println();
@@ -102,6 +101,7 @@ public class ArrayTheme {
         System.out.println("\n\n6. Копирование не пустых строк");
         String[] array = {"    ", "AA", "", "BBB", "CC", "D", "    ", "E", "FF", "G", ""};
         int countNotNull = 0;
+        len = array.length;
 
         for (String str : array) {
             if (!str.isBlank()) {
@@ -113,7 +113,7 @@ public class ArrayTheme {
         int srcPos = 0;
         int destPos = 0;
         int length = 0;
-        for (i = 0; i < array.length; i++) {
+        for (i = 0; i < len; i++) {
             if (array[i].isBlank()) {
                 System.arraycopy(array, srcPos, newArray, destPos, length);
                 srcPos = i + 1;
@@ -130,12 +130,18 @@ public class ArrayTheme {
         stringArr(newArray);
     }
 
-    private static void conclusionFloatsArr(float[] floatsArr) {
-        for (int i = 0; i < floatsArr.length; i++) {
+    private static void arrayExpression(int[] array) {
+        for (int i : array) {
+            System.out.print(i + " ");
+        }
+    }
+
+    private static void conclusionFloatsArr(float[] floatArr) {
+        for (int i = 0; i < floatArr.length; i++) {
             if (i == 8) {
                 System.out.println();
             }
-            System.out.print(String.format("%.3f", floatsArr[i]) + " ");
+            System.out.print(String.format("%.3f", floatArr[i]) + " ");
         }
     }
 
