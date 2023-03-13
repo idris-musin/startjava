@@ -5,12 +5,12 @@ public class Calculator {
     private static int num2;
     private static char operation;
 
-    public static double calculate(String str) {
-        parseMathExpression(str);
+    public static double calculate(String expression) {
+        parse(expression);
         return switch (operation) {
-            case '+' -> (double) Math.addExact(num1, num2);
-            case '-' -> (double) Math.subtractExact(num1, num2);
-            case '*' -> (double) Math.multiplyExact(num1, num2);
+            case '+' -> Math.addExact(num1, num2);
+            case '-' -> Math.subtractExact(num1, num2);
+            case '*' -> Math.multiplyExact(num1, num2);
             case '/' -> {
                 if (num2 == 0) {
                     throw new ArithmeticException("Делить на ноль запрещено!!!");
@@ -28,17 +28,17 @@ public class Calculator {
         };
     }
 
-    private static void parseMathExpression(String string) {
-        String[] expression = string.split(" ");
-        if (expression.length != 3) {
+    private static void parse(String string) {
+        String[] partsExpression = string.split(" ");
+        if (partsExpression.length != 3) {
             throw new NumberFormatException("Неверный формат математической операции!");
         }
-        num1 = parseNumber(expression[0]);
-        operation = expression[1].charAt(0);
-        num2 = parseNumber(expression[2]);
+        num1 = parseWholePositiveNumber(partsExpression[0]);
+        operation = partsExpression[1].charAt(0);
+        num2 = parseWholePositiveNumber(partsExpression[2]);
     }
 
-    private static int parseNumber(String string) {
+    private static int parseWholePositiveNumber(String string) {
         double number = Double.parseDouble(string);
         if (number < 0) {
             throw new IllegalStateException("Введено отрицательное число!");

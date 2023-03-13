@@ -18,13 +18,10 @@ public class CalculatorTest {
                     System.out.print(inputExpression + " = ");
                     result = Calculator.calculate(inputExpression);
 
-                    if (result % 1 == 0) {
-                        System.out.println((int) result);
-                    } else {
-                        System.out.println(result);
-                    }
-                } catch (ArithmeticException | IllegalStateException | NumberFormatException exception) {
-                    System.out.println("Ошибка: " + exception.getMessage());
+                    parseResult(result);
+
+                } catch (ArithmeticException | IllegalStateException | NumberFormatException e) {
+                    System.out.println("Ошибка: " + e.getMessage());
                 }
             }
 
@@ -32,5 +29,14 @@ public class CalculatorTest {
             answer = scanner.nextLine();
         }
         scanner.close();
+    }
+
+    private static void parseResult(double number) {
+
+        if (number % 1 == 0) {
+            System.out.println((int) number);
+        } else {
+            System.out.println(number);
+        }
     }
 }
