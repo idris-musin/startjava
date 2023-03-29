@@ -33,12 +33,12 @@ public class Calculator {
         if (partsExpression.length != 3) {
             throw new NumberFormatException("Неверный формат математической операции!");
         }
-        num1 = parseWholePositiveNumber(partsExpression[0]);
+        num1 = checkNaturalNumber(partsExpression[0]);
         operation = partsExpression[1].charAt(0);
-        num2 = parseWholePositiveNumber(partsExpression[2]);
+        num2 = checkNaturalNumber(partsExpression[2]);
     }
 
-    private static int parseWholePositiveNumber(String string) {
+    private static int checkNaturalNumber(String string) {
         double number = Double.parseDouble(string);
         if (number < 0) {
             throw new IllegalStateException("Введено отрицательное число!");

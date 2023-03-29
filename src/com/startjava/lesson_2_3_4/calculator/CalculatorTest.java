@@ -10,33 +10,30 @@ public class CalculatorTest {
 
         while (!answer.equals("no")) {
             if (answer.equals("yes")) {
-                double result;
                 System.out.print("Введите математическое выражение: ");
                 String inputExpression = scanner.nextLine();
 
                 try {
-                    System.out.print(inputExpression + " = ");
-                    result = Calculator.calculate(inputExpression);
+                    double result = Calculator.calculate(inputExpression);
 
-                    parseResult(result);
-
+                    parseResult(result, inputExpression);
                 } catch (ArithmeticException | IllegalStateException | NumberFormatException e) {
-                    System.out.println("Ошибка: " + e.getMessage());
+                    System.out.println("\nОшибка: " + e.getMessage());
                 }
             }
 
-            System.out.println("Хотите продолжить вычисления? [yes/no]");
+            System.out.println("\nХотите продолжить вычисления? [yes/no]");
             answer = scanner.nextLine();
         }
         scanner.close();
     }
 
-    private static void parseResult(double number) {
+    private static void parseResult(double number, String inputExpression) {
 
         if (number % 1 == 0) {
-            System.out.println((int) number);
+            System.out.printf("%s = %d", inputExpression, (int) number);
         } else {
-            System.out.println(number);
+            System.out.printf("%s = %f", inputExpression, number);
         }
     }
 }
