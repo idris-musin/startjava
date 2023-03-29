@@ -31,9 +31,9 @@ public class CalculatorTest {
     private static void parseResult(double number, String inputExpression) {
 
         if (number % 1 == 0) {
-            System.out.printf("%s = %d", inputExpression, (int) number);
+            System.out.printf("%s = %s", inputExpression, (int) number);
         } else {
-            System.out.printf("%s = %f", inputExpression, number);
+            System.out.printf("%s = %s", inputExpression, number);
         }
     }
 }
