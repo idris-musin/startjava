@@ -39,13 +39,15 @@ public class Calculator {
     }
 
     private static int checkNaturalNumber(String string) {
-        double number = Double.parseDouble(string);
+        int number;
+        try {
+            number = Integer.parseInt(string);
+        } catch (NumberFormatException e) {
+            throw new IllegalStateException("Введено дробное число!");
+        }
         if (number < 0) {
             throw new IllegalStateException("Введено отрицательное число!");
         }
-        if (number % 1 != 0) {
-            throw new IllegalStateException("Введено дробное число!");
-        }
-        return (int) number;
+        return number;
     }
 }

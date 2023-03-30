@@ -29,7 +29,6 @@ public class CalculatorTest {
     }
 
     private static void parseResult(double number, String inputExpression) {
-
         if (number % 1 == 0) {
             System.out.printf("%s = %s", inputExpression, (int) number);
         } else {
