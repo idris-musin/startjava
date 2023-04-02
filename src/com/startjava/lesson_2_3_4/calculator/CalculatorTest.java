@@ -15,8 +15,7 @@ public class CalculatorTest {
 
                 try {
                     double result = Calculator.calculate(inputExpression);
-
-                    parseResult(result, inputExpression);
+                    printResult(result, inputExpression);
                 } catch (ArithmeticException | IllegalStateException | NumberFormatException e) {
                     System.out.println("\nОшибка: " + e.getMessage());
                 }
@@ -28,11 +27,7 @@ public class CalculatorTest {
         scanner.close();
     }
 
-    private static void parseResult(double number, String inputExpression) {
-        if (number % 1 == 0) {
-            System.out.printf("%s = %s", inputExpression, (int) number);
-        } else {
-            System.out.printf("%s = %s", inputExpression, number);
-        }
+    private static void printResult(double number, String inputExpression) {
+        System.out.printf(inputExpression + " = " + (number % 1 == 0 ? (int) number : "%f"), number);
     }
 }
