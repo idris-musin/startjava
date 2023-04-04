@@ -1,5 +1,6 @@
 package com.startjava.lesson_2_3_4.calculator;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class CalculatorTest {
@@ -28,6 +29,8 @@ public class CalculatorTest {
     }
 
     private static void printResult(double number, String inputExpression) {
-        System.out.printf(inputExpression + " = " + (number % 1 == 0 ? (int) number : "%f"), number);
+        DecimalFormat decimalFormat = new DecimalFormat("#.#####");
+        System.out.printf(inputExpression + " = " +
+                (number % 1 == 0 ? (int) number : "%s"), decimalFormat.format(number));
     }
 }
