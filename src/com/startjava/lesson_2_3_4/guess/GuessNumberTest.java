@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class GuessNumberTest {
 
+    private static final int PLAYERS_COUNT = 3;
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         GuessNumber game = new GuessNumber(createPlayers());
@@ -19,9 +21,9 @@ public class GuessNumberTest {
     }
 
     private static Player[] createPlayers() {
-        Player[] players = new Player[3];
+        Player[] players = new Player[PLAYERS_COUNT];
         Scanner scanner = new Scanner(System.in);
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < PLAYERS_COUNT; i++) {
             System.out.print("Игрок №" + (i + 1) + ", введите имя: ");
             players[i] = new Player(scanner.nextLine());
         }
