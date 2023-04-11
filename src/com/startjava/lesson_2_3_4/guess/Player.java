@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class Player {
 
-    private String name;
-    private int[] numbers = new int[10];
+    private final String name;
+    private final int[] numbers = new int[10];
     private int countAttempts;
     private int score;
 
@@ -21,7 +21,7 @@ public class Player {
         return numbers[countAttempts - 1];
     }
 
-    public void setNumbers(int num) {
+    public void setNumber(int num) {
         if (num <= 0 || num > 100) {
             throw new IllegalStateException("Число не входит в полуинтервал (0; 100]\n");
         }
@@ -37,16 +37,16 @@ public class Player {
         return score;
     }
 
-    public void resetNumbers() {
+    public void clear() {
         Arrays.fill(numbers, 0, countAttempts, 0);
         countAttempts = 0;
     }
 
-    public int[] getPlayerNumbers() {
+    public int[] getNumbers() {
         return Arrays.copyOf(numbers, countAttempts);
     }
 
-    public void countScore() {
+    public void increaseScore() {
         score++;
     }
 
