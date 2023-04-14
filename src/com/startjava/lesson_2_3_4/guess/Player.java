@@ -4,8 +4,9 @@ import java.util.Arrays;
 
 public class Player {
 
+    private static final int MAX_NUMBER_ATTEMPTS = 10;
     private final String name;
-    private final int[] numbers = new int[10];
+    private final int[] numbers = new int[MAX_NUMBER_ATTEMPTS];
     private int countAttempts;
     private int score;
 
@@ -21,7 +22,7 @@ public class Player {
         return numbers[countAttempts - 1];
     }
 
-    public void setNumber(int num) {
+    public void addNumber(int num) {
         if (num <= 0 || num > 100) {
             throw new IllegalStateException("Число не входит в полуинтервал (0; 100]\n");
         }
