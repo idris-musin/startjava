@@ -6,6 +6,7 @@ public class GuessNumber {
 
     private static final int MAX_ATTEMPTS = 10;
     private static final int MAX_ROUND = 3;
+    private static final int MAX_NUMBER = 100;
     private final Player[] players;
     private int hiddenNumber;
 
@@ -41,7 +42,7 @@ public class GuessNumber {
     private void startRound(int round) {
         System.out.println("\nРаунд №" + round);
         System.out.println("У каждого игрока по " + MAX_ATTEMPTS + " попыток\n");
-        generateNumber();
+        generateHiddenNumber();
         for (int i = 0; i < MAX_ATTEMPTS; i++) {
             if (isGuessed()) {
                 break;
@@ -50,13 +51,13 @@ public class GuessNumber {
         outputPlayerNumbers();
     }
 
-    private void generateNumber() {
-        hiddenNumber = (int) ((Math.random() * 100) + 1);
+    private void generateHiddenNumber() {
+        hiddenNumber = (int) ((Math.random() * MAX_NUMBER) + 1);
     }
 
     private boolean isGuessed() {
         for (Player player : players) {
-            isEnterNumber(player);
+            enterNumber(player);
             if (compareNumbers(player)) {
                 return true;
             }
@@ -64,7 +65,7 @@ public class GuessNumber {
         return false;
     }
 
-    private void isEnterNumber(Player player) {
+    private void enterNumber(Player player) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.print(player.getName() + ", введите число: ");
