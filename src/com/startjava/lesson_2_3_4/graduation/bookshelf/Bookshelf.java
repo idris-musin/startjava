@@ -5,37 +5,37 @@ import java.util.Arrays;
 public class Bookshelf {
     private final static int BOOKS_QUANTITY = 3;
     private final Book[] books = new Book[BOOKS_QUANTITY];
-    private int countBook;
-    private int infoLength;
+    private int countBooks;
+    private int maxLength;
 
     public Book[] getBooks() {
-        return Arrays.copyOf(books, countBook);
+        return Arrays.copyOf(books, countBooks);
     }
 
-    public int getCountBook() {
-        return countBook;
+    public int getCountBooks() {
+        return countBooks;
     }
 
-    public int getInfoLength() {
-        return infoLength;
+    public int getMaxLength() {
+        return maxLength;
     }
 
-    public int getCountEmptyBookshelf() {
-        return BOOKS_QUANTITY - countBook;
+    public int receiveCountEmptyShelfs() {
+        return BOOKS_QUANTITY - countBooks;
     }
 
     public void add(Book book) {
-        books[countBook] = book;
+        books[countBooks] = book;
         calculateMaxLength(book);
-        countBook++;
+        countBooks++;
     }
 
     public boolean isFull() {
-        return countBook == BOOKS_QUANTITY;
+        return countBooks == BOOKS_QUANTITY;
     }
 
     public Book find(String title) {
-        for (int i = 0; i < countBook; i++) {
+        for (int i = 0; i < countBooks; i++) {
             if (books[i].getTitle().equalsIgnoreCase(title)) {
                 return books[i];
             }
@@ -46,26 +46,27 @@ public class Bookshelf {
     public void delete(String title) {
         int index = findIndex(title);
         if (index < 0) {
-            throw new IllegalStateException("Книга не найдена!");
+            System.out.println("Книга не найдена!");
+            return;
         }
-        countBook--;
-        System.arraycopy(books, index + 1, books, index, countBook - index);
+        countBooks--;
+        System.arraycopy(books, index + 1, books, index, countBooks - index);
     }
 
     public void clear() {
         System.arraycopy(books, 0, books, 0, 0);
-        countBook = 0;
+        countBooks = 0;
     }
 
     private void calculateMaxLength(Book book) {
         int length = book.toString().length();
-        if (length > infoLength) {
-            infoLength = length;
+        if (length > maxLength) {
+            maxLength = length;
         }
     }
 
     private int findIndex(String title) {
-        for (int i = 0; i < countBook; i++) {
+        for (int i = 0; i < countBooks; i++) {
             if (books[i].getTitle().equalsIgnoreCase(title)) {
                 return i;
             }
