@@ -3,8 +3,8 @@ package com.startjava.lesson_2_3_4.graduation.bookshelf;
 import java.util.Arrays;
 
 public class Bookshelf {
-    private final static int BOOKS_QUANTITY = 3;
-    private final Book[] books = new Book[BOOKS_QUANTITY];
+    private final static int CAPACITY = 3;
+    private final Book[] books = new Book[CAPACITY];
     private int countBooks;
     private int maxLength;
 
@@ -21,7 +21,7 @@ public class Bookshelf {
     }
 
     public int receiveCountEmptyShelfs() {
-        return BOOKS_QUANTITY - countBooks;
+        return CAPACITY - countBooks;
     }
 
     public void add(Book book) {
@@ -31,7 +31,7 @@ public class Bookshelf {
     }
 
     public boolean isFull() {
-        return countBooks == BOOKS_QUANTITY;
+        return countBooks == CAPACITY;
     }
 
     public Book find(String title) {
